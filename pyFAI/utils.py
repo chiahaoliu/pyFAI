@@ -98,6 +98,7 @@ StringTypes = (six.binary_type, six.text_type)
 try:
     input = raw_input
 except NameError:
+    print('input is input')
     pass
 
 try:

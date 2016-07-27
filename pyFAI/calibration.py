@@ -61,9 +61,7 @@ from .detectors import detector_factory, Detector
 from .geometryRefinement import GeometryRefinement
 from .peak_picker import PeakPicker
 from . import units, gui_utils
-from .utils import averageImages, measure_offset, expand_args, \
-            readFloatFromKeyboard, input, FixedParameters, roundfft, \
-            win32
+from .utils import averageImages, measure_offset, expand_args, readFloatFromKeyboard, FixedParameters, roundfft, win32 #, input
 from .azimuthalIntegrator import AzimuthalIntegrator
 from .units import hc
 from . import version as PyFAI_VERSION
@@ -93,7 +91,8 @@ def get_detector(detector, datafiles=None):
     @return pyFAI.detector.Detector instance
     """
     res = None
-    if type(detector) in types.StringTypes:
+    #if type(detector) in types.StringTypes:
+    if isinstance(detector, str):
         try:
             res = detector_factory(detector)
         except RuntimeError:
@@ -703,7 +702,9 @@ class AbstractCalibration(object):
             self.peakPicker.closeGUI()
         print("Before refinement, the geometry is:")
         print(self.geoRef)
-        previous = sys.maxint
+        # py3 thingy..
+        #previous = sys.maxint
+        previous = sys.maxsize
         finished = False
         fig2 = None
         while not finished:
