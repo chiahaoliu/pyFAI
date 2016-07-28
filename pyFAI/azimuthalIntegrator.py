@@ -3287,7 +3287,9 @@ class AzimuthalIntegrator(Geometry):
         if not filename:
             return
         writer = self.__get_default_writer()
-        writer.__get_default_writer().save2D(filename, I, dim1, dim2, error, dim1_unit, has_dark, has_flat, polarization_factor, normalization_factor)
+        # cleaning
+        #writer.__get_default_writer().save2D(filename, I, dim1, dim2, error, dim1_unit, has_dark, has_flat, polarization_factor, normalization_factor)
+        writer.save2D(filename, I, dim1, dim2, error, dim1_unit, has_dark, has_flat, polarization_factor, normalization_factor)
 
     def separate(self, data, npt_rad=1024, npt_azim=512, unit="2th_deg", method="splitpixel",
                  percentile=50, mask=None, restore_mask=True):

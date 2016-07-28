@@ -62,4 +62,4 @@ if __name__ == "__main__":
     c.read_pixelsSize()
     c.preprocess()
     c.gui_peakPicker()
-    raw_input("Press enter to quit")
+    input("Press enter to quit")

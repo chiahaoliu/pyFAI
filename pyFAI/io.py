@@ -424,6 +424,8 @@ class DefaultAiWriter(Writer):
         Constructor of the historical writer of azimuthalIntegrator.
         """
         self._filename = filename
+        # patching...
+        self.filename = self._filename
         self._ai = ai
         self._header = None
         self._already_written = False
